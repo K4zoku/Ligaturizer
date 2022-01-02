@@ -28,26 +28,7 @@ OUTPUT_DIR = 'fonts/output/'
 # Don't put fonts licensed under UFL here, and don't put fonts licensed under
 # SIL OFL here either unless they haven't specified a Reserved Font Name.
 
-<<<<<<< HEAD
 prefixed_fonts = []
-=======
-prefixed_fonts = [
-  # Apache 2.0 license
-  'fonts/codeface/fonts/cousine/*.ttf',
-  'fonts/codeface/fonts/droid-sans-mono/*.ttf',
-  'fonts/codeface/fonts/meslo/*.ttf',
-  'fonts/codeface/fonts/roboto-mono/*.ttf',
-
-  # MIT license
-  'fonts/codeface/fonts/dejavu-sans-mono/*.ttf',
-  'fonts/codeface/fonts/hack/*.ttf',
-
-  # SIL OFL with no Reserved Font Name
-  'fonts/codeface/fonts/edlo/*.ttf',
-  'fonts/codeface/fonts/inconsolata/*.ttf',
-  'fonts/spacemono/fonts/*.ttf',
-]
->>>>>>> parent of c406518 (Add Montserrat)
 
 #### Fonts that need to be renamed. ####
 # These are fonts that either have name collisions with the prefixed_fonts
