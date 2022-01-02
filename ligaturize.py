@@ -297,6 +297,8 @@ def ligaturize_font(input_font_file, output_dir, ligature_font_file,
         output_font_type = '.ttf'
 
     # Generate font & move to output directory
+    if not path.exists(output_dir):
+        os.makedirs(output_dir)
     output_font_file = path.join(output_dir, font.fontname + output_font_type)
     print("    ...saving to '%s' (%s)" % (output_font_file, font.fullname))
     font.generate(output_font_file)

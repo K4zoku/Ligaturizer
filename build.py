@@ -57,6 +57,7 @@ renamed_fonts = {
 import sys
 from glob import glob
 from ligaturize import ligaturize_font
+from os import path
 
 if '--copy-character-glyphs' in sys.argv:
   COPY_CHARACTER_GLYPHS=True
@@ -82,7 +83,7 @@ for pattern,name in renamed_fonts.items():
     sys.exit(1)
   for input_file in files:
     ligaturize_font(
-      input_file, ligature_font_file=None, output_dir=OUTPUT_DIR,
+      input_file, ligature_font_file=None, output_dir=path.join(OUTPUT_DIR, name),
       prefix=None, output_name=name,
       copy_character_glyphs=COPY_CHARACTER_GLYPHS,
       scale_character_glyphs_threshold=SCALE_CHARACTER_GLYPHS_THRESHOLD)
