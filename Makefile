@@ -25,7 +25,7 @@ with-characters:
 	| grep -Fv 'Bad device table'
 
 ligature-list:
-	luajit name2dict.lua < fonts/fira/FiraCode.glyphs
+	luajit name2dict.lua < fonts/FiraCode/FiraCode.glyphs
 
 testpattern:
 	grep -F "{   #" ligatures.py \

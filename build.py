@@ -28,6 +28,9 @@ OUTPUT_DIR = 'fonts/output/'
 # Don't put fonts licensed under UFL here, and don't put fonts licensed under
 # SIL OFL here either unless they haven't specified a Reserved Font Name.
 
+<<<<<<< HEAD
+prefixed_fonts = []
+=======
 prefixed_fonts = [
   # Apache 2.0 license
   'fonts/codeface/fonts/cousine/*.ttf',
@@ -43,9 +46,8 @@ prefixed_fonts = [
   'fonts/codeface/fonts/edlo/*.ttf',
   'fonts/codeface/fonts/inconsolata/*.ttf',
   'fonts/spacemono/fonts/*.ttf',
-  'fonts/Montserrat/fonts/otf/*.otf',
-  'fonts/Montserrat/fonts/ttf/*.ttf',
 ]
+>>>>>>> parent of c406518 (Add Montserrat)
 
 #### Fonts that need to be renamed. ####
 # These are fonts that either have name collisions with the prefixed_fonts
@@ -53,27 +55,9 @@ prefixed_fonts = [
 # change the name of the modified fonts.
 
 renamed_fonts = {
-  # This doesn't have a reserved name, but if we don't rename it it'll collide
-  # with its sibling Fantasque Sans Mono Normal, listed above.
-  'fonts/FantasqueSansMono-Normal/*.otf': 'Liga Fantasque Sans Mono',
-  'fonts/FantasqueSansMono-Normal/*.ttf': 'Liga Fantasque Sans Mono',
-  'fonts/FantasqueSansMono-NoLoopK/*.otf': 'Liga Fantasque Sans Mono NoLoopK',
-  'fonts/FantasqueSansMono-NoLoopK/*.ttf': 'Liga Fantasque Sans Mono NoLoopK',
-  'fonts/FantasqueSansMono-LargeLineHeight/*.otf': 'Liga Fantasque Sans Mono LargeLineHeight',
-  'fonts/FantasqueSansMono-LargeLineHeight/*.ttf': 'Liga Fantasque Sans Mono LargeLineHeight',
-  'fonts/FantasqueSansMono-LargeLineHeight-NoLoopK/*.otf': 'Liga Fantasque Sans Mono LargeLineHeight NoLoopK',
-  'fonts/FantasqueSansMono-LargeLineHeight-NoLoopK/*.ttf': 'Liga Fantasque Sans Mono LargeLineHeight NoLoopK',
 
   # SIL OFL with reserved name
-  'fonts/codeface/fonts/anonymous-pro/*.ttf': 'Liganymous',
-  'fonts/plex/IBM-Plex-Mono/fonts/complete/ttf/*.ttf': 'Ligalex Mono',
-  'fonts/codeface/fonts/oxygen-mono/*.otf': 'Liga O2 Mono',
-  'fonts/codeface/fonts/source-code-pro/*.ttf': 'LigaSrc Pro',
-  'fonts/SourceCodeVariable*': 'LigaSrc Variable',
-  'fonts/Hermit/*.otf': 'Ligamit',
-
-  # UFL
-  'fonts/codeface/fonts/ubuntu-mono/*.ttf': 'Ubuntu Mono Ligaturized',
+  'fonts/IBM-Plex-Mono/*.ttf': 'Plex Code',
 }
 
 #### Fonts we can't ligaturize. ####

@@ -21,19 +21,27 @@ COPYRIGHT = '''
 Programming ligatures added by Ilya Skriblovsky from FiraCode
 FiraCode Copyright (c) 2015 by Nikita Prokopov'''
 
+fontname_replacer = {
+    'ExtLt': 'ExtraLight',
+    'Medm': 'Medium',
+    'SmBld': 'SemiBold',
+}
+
 def get_ligature_source(fontname):
     # Become case-insensitive
+    for key, val in fontname_replacer.items():
+        fontname = fontname.replace(key, val)
     fontname = fontname.lower()
-    for weight in ['Bold', 'Retina', 'Medium', 'Regular', 'Light']:
-        if fontname.endswith('-' + weight.lower()):
+    for weight in ['Bold', 'Retina', 'Medium', 'Regular', 'Light', 'SemiBold']:
+        if weight.lower() in fontname:
             # Exact match for one of the Fira Code weights
-            return 'fonts/fira/distr/otf/FiraCode-%s.otf' % weight
+            return 'fonts/FiraCode/FiraCode-%s.otf' % weight
 
     # No exact match. Guess that we want 'Bold' if the font name has 'bold' or
     # 'heavy' in it, and 'Regular' otherwise.
     if 'bold' in fontname or 'heavy' in fontname:
-        return 'fonts/fira/distr/otf/FiraCode-Bold.otf'
-    return 'fonts/fira/distr/otf/FiraCode-Regular.otf'
+        return 'fonts/FiraCode/FiraCode-Bold.otf'
+    return 'fonts/FiraCode/FiraCode-Regular.otf'
 
 class LigatureCreator(object):
 
@@ -85,8 +93,7 @@ class LigatureCreator(object):
             # Fix horizontal advance first, to recalculate the bearings.
             glyph.width = self.emwidth
             # Correct bearings to center the glyph.
-            glyph.left_side_bearing = (glyph.left_side_bearing + glyph.right_side_bearing) / 2
-            glyph.right_side_bearing = glyph.left_side_bearing
+            glyph.left_side_bearing = glyph.right_side_bearing = int(glyph.left_side_bearing + glyph.right_side_bearing) // 2
 
         # Final adjustment of horizontal advance to correct for rounding
         # errors when scaling/centering -- otherwise small errors can result
@@ -223,6 +230,7 @@ def update_font_metadata(font, new_name):
     # and hyphenated suffix (if present)
     old_name = font.familyname
     try:
+        # suffix = path.basename(font.path).split('-')[1][:-4]
         suffix = font.fontname.split('-')[1]
     except IndexError:
         suffix = None
@@ -231,6 +239,8 @@ def update_font_metadata(font, new_name):
     # If a suffix was present, append it accordingly.
     font.familyname = new_name
     if suffix:
+        for key, val in fontname_replacer.items():
+            suffix = suffix.replace(key, val)
         font.fullname = "%s %s" % (new_name, suffix)
         font.fontname = "%s-%s" % (new_name.replace(' ', ''), suffix)
     else:
@@ -238,7 +248,7 @@ def update_font_metadata(font, new_name):
         font.fontname = new_name.replace(' ', '')
 
     print("Ligaturizing font %s (%s) as '%s'" % (
-        path.basename(font.path), old_name, new_name))
+        path.basename(font.path), old_name, font.fullname))
 
     font.copyright = (font.copyright or '') + COPYRIGHT
     replace_sfnt(font, 'UniqueID', '%s; Ligaturized' % font.fullname)

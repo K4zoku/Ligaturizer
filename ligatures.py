@@ -87,10 +87,10 @@ ligatures = [
         'chars': ['asterisk', 'asterisk'],
         'firacode_ligature_name': 'asterisk_asterisk.liga',
     },
-    {   # ***
-        'chars': ['asterisk', 'asterisk', 'asterisk'],
-        'firacode_ligature_name': 'asterisk_asterisk_asterisk.liga',
-    },
+    # {   # ***
+    #     'chars': ['asterisk', 'asterisk', 'asterisk'],
+    #     'firacode_ligature_name': 'asterisk_asterisk_asterisk.liga',
+    # },
     {   # *>
         'chars': ['asterisk', 'greater'],
         'firacode_ligature_name': 'asterisk_greater.liga',
@@ -443,14 +443,14 @@ ligatures = [
         'chars': ['less', 'plus', 'greater'],
         'firacode_ligature_name': 'less_plus_greater.liga',
     },
-    {   # </
-        'chars': ['less', 'slash'],
-        'firacode_ligature_name': 'less_slash.liga',
-    },
-    {   # </>
-        'chars': ['less', 'slash', 'greater'],
-        'firacode_ligature_name': 'less_slash_greater.liga',
-    },
+    # {   # </
+    #     'chars': ['less', 'slash'],
+    #     'firacode_ligature_name': 'less_slash.liga',
+    # },
+    # {   # </>
+    #     'chars': ['less', 'slash', 'greater'],
+    #     'firacode_ligature_name': 'less_slash_greater.liga',
+    # },
     {   # #{
         'chars': ['numbersign', 'braceleft'],
         'firacode_ligature_name': 'numbersign_braceleft.liga',
@@ -579,10 +579,10 @@ ligatures = [
         'chars': ['slash', 'equal', 'equal'],
         'firacode_ligature_name': 'slash_equal_equal.liga',
     },
-    {   # />
-        'chars': ['slash', 'greater'],
-        'firacode_ligature_name': 'slash_greater.liga',
-    },
+    # {   # />
+    #     'chars': ['slash', 'greater'],
+    #     'firacode_ligature_name': 'slash_greater.liga',
+    # },
     {   # //
         'chars': ['slash', 'slash'],
         'firacode_ligature_name': 'slash_slash.liga',
